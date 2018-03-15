@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title> view store</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link href="/css/viewstore.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+
+<form name="viewstore" action="#"  th:action="@{/viewstore}" th:object="${newStore}" method="POST">
+    <p th:text="'Store Name: ' + ${newStore.name}" />
+</form>
+</body>
+</html>

@@ -1,0 +1,13 @@
+html{
+    background-image: url("/img/blue-geometric-technological-background_1055-1907.jpg");
+    background-repeat:no-repeat;
+    background-size: 100% 
+}
+h1{
+    font-size:40px;
+    color: white;
+}
+p{
+    color: #6E6E6E;
+    font-size: 28px;
+}

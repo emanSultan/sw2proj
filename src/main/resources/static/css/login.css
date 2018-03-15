@@ -1,0 +1,36 @@
+html{
+    background-image: url("/img/picture1.png");
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
+input[type=text]{
+	background-color:#F6E3CE;
+	border:3px solid black;
+	 box-sizing: border-box;
+	 padding: 5px 10px;
+	
+}
+/*p{
+    display: inline;
+    float: left;
+}
+p1{
+    display: inline;
+    float: left;
+}*/
+input[type=submit]{
+     background-color:#BDBDBD;
+    border: thin black;
+    color: black;
+    padding: 10px 13px;
+    font-size: 13px;
+    cursor: pointer;
+}
+input[type=reset]{
+     background-color:#BDBDBD;
+    border: thin black;
+    color: black;
+    padding: 10px 13px;
+    font-size: 13px;
+    cursor: pointer;
+}

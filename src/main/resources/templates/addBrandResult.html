@@ -3,11 +3,13 @@
 <head>
     <title>Getting Started: Handling Form Submission</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <link href="/css/result.css" rel="stylesheet" type="text/css"/>
+    <link href="/css/addBrandResult.css" rel="stylesheet" type="text/css"></link>
 </head>
 <body>
-	<h1>Result</h1>
-    <p th:text="'userName: ' + ${account.userName}" />
-	<p th:text="'pass: ' + ${account.pass}" />
+    <h1>Brand Result</h1>
+
+    <p th:text="'name: ' + ${newBrand.name}" />
+    <p th:text="'category: ' + ${newBrand.category}" />
+
 </body>
 </html>

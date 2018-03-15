@@ -13,7 +13,7 @@ boolean addProduct(Product product, BrandController brandCtr,ProductController p
         boolean output = true;
 
         boolean temp = search(product,pc.mProducts);
-        boolean brand =brandCtr.search(product.getBrand(),brandCtr.brands);
+        boolean brand =brandCtr.searchInBrandStore(product.getBrand(),brandCtr);
 
         if(temp == true||brand == false)
         {

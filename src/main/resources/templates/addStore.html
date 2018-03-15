@@ -1,13 +1,15 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head> 
-    <title> Add product</title>
+    <title> Add store</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link href="/css/addStore.css" rel="stylesheet" type="text/css"/>
     </head>
 <body>
 <form name="addstore" action="#"  th:action="@{/addStore}" th:object="${newstore}" method="POST">
-    <p>storeID: <input type="text" th:field="*{storeID}" /></p>
-    <p>ownerusername: <input type="text" th:field="*{ownerusername}" /></p>
-    <p>name: <input type="text" th:field="*{name}" /></p>
+<h1>Add Store</h1>
+    <p><b>Store ID: <input type="text" th:field="*{storeID}" /></b></p>
+    <p><b>Owner username: <input type="text" th:field="*{ownerusername}" /></b></p>
+    <p><b>Name: <input type="text" th:field="*{name}" /></b></p>
     <p><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></p>
      </form>
     </body>

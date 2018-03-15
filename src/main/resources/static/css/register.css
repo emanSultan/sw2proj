@@ -1,0 +1,28 @@
+html{
+    background-image: url("/img/arvuti-internet-internetimakse-krediitkaart-online-makse-pangakaart-pe-73688027.jpg");
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
+input[type=text]{
+	background-color:#F6E3CE;
+	border:3px solid black;
+	 box-sizing: border-box;
+	 padding: 5px 10px;
+	
+}
+input[type=submit]{
+     background-color:white;
+    border: thin black;
+    color: black;
+    padding: 10px 13px;
+    font-size: 13px;
+    cursor: pointer;
+}
+input[type=reset]{
+     background-color:white;
+    border: thin black;
+    color: black;
+    padding: 10px 13px;
+    font-size: 13px;
+    cursor: pointer;
+}

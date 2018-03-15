@@ -3,12 +3,14 @@
 
     <title>login </title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link href="/css/login.css" rel="stylesheet" type="text/css"></link>
 </head>
 <body>
 <form  action="#" th:action="@{/login}" th:object="${loginAccount}" method="POST">
-    <p>UserName: <input type="text" th:field="*{userName}" /></p>
-    <p>Password: <input type="text" th:field="*{pass}" /></p>
-    <p>Type: <input type="text" th:field="*{type}" /></p>
+<h1>login</h1>
+    <p><b>User Name: <input type="text" th:field="*{userName}" /></b></p>
+    <p><b>Password: <input type="text" th:field="*{pass}" /></b></p>
+    <p><b>Type: <input type="text" th:field="*{type}" /></b></p>
     <p><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></p>
 </form>
 

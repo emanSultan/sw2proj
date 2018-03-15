@@ -11,6 +11,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import sun.plugin.javascript.navig.Link;
 
 import java.util.ArrayList;
@@ -49,14 +50,22 @@ StoreController sC=new StoreController();
         return "login";}
 
     @PostMapping("/login")
-    public String loginSubmit(@ModelAttribute("loginAccount") Account loginAccount) {
+    public String loginSubmit(@ModelAttribute("loginAccount") Account loginAccount,@ModelAttribute("newStore")Store newStor) {
+        newStor.setName(sC.mStores.get(0).getName());
+        newStor.setStoreID(sC.mStores.get(0).getStoreID());
         boolean log=aC.login(loginAccount.getUserName(),loginAccount.getPass(),loginAccount.getType(),aC);
         System.out.println(loginAccount.getUserName());
         System.out.println(loginAccount.getPass());
         System.out.println(loginAccount.getType());
         System.out.println(log);
-        if(log==true)
-        return "loginresult";
+        if(log==true&&loginAccount.getType().equalsIgnoreCase("buyer")) {
+            sC.viewStroeToExplore(newStor.getName(),sC);
+            return "viewstore";
+        }
+        else if(log==true&&loginAccount.getType().equalsIgnoreCase("owner"))
+        {
+            return "loginresult";
+        }
         else
         {return "login";}
     }
@@ -68,13 +77,6 @@ StoreController sC=new StoreController();
 
     @PostMapping("/addproduct")
     public String addProductSubmit(@ModelAttribute("newProduct") Product newProduct) {
-        bC.brands.add("adedas");
-        bC.brands.add("nicky");
-        bC.brands.add("bomma");
-        bC.brands.add("lacost");
-        bC.brands.add("gohyna");
-        bC.brands.add("labneta");
-        bC.brands.add("almra3e");
         boolean add=PC.addProduct(newProduct,bC,PC);
 
         if(add==true)
@@ -97,13 +99,39 @@ StoreController sC=new StoreController();
 
     @PostMapping("/addStore")
     public String addStoreSubmit(@ModelAttribute("newstore") Store newstore) {
-            boolean done = sC.addStore(newstore.getName(), sC);
+            boolean done = sC.addStore(newstore.getName());
             if (done == true)
                 return "addstoreresult";
             else
                 return "addStore";
+    }
 
+    @GetMapping("/addBrand")
+    public String addBrandForm(Model model) {
+        model.addAttribute("newBrand", new Brand());
+        return "addBrand";
+    }
 
+    @PostMapping("/addBrand")
+    public String addBrandSubmit(@ModelAttribute("newBrand") Brand newBrand) {
+        boolean addbrand = bC.addBrandToSystem(newBrand, bC);
+        if (addbrand == true) {
+            return "addBrandResult";
+        } else {
+            return "addBrand";
+        }
+    }
+
+    @GetMapping("/requestStorestat")
+    public String addrequeststatForm(Model model, @RequestParam String name) {
+        model.addAttribute("views", sC.getExploreStorre(name));
+        return "requestStorestat";
+    }
+    @GetMapping("/requestproStorestat")
+    public String addrequestprostatForm(Model model, @RequestParam String name) {
+        model.addAttribute("views", sC.getExploreStorre(name));
+        return "requestproStorestat";
+    }
 
     }
-}
+

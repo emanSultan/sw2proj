@@ -2,19 +2,21 @@
 <head> 
     <title> Add product</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link href="/css/addProduct.css" rel="stylesheet" type="text/css"/>
     </head>
 <body>
 
 <form name="addproduct" action="#"  th:action="@{/addproduct}" th:object="${newProduct}" method="POST">
-    <p>ProductName: <input type="text" th:field="*{name}" /></p>
-    <p>Productprice: <input type="text" th:field="*{price}" /></p>
- <p>Productcategory: <input type="text" th:field="*{category}"/></p>
-    <p>Productbrand: <input type="text" th:field="*{brand}" /></p> 
-    <p>Productsize: <input type="text" th:field="*{size}" /></p>
-    <p>Productid: <input type="text" th:field="*{id}" /></p>
-    <p>Productcolor: <input type="text" th:field="*{color}" /></p>
-    <p>Productviews: <input type="text" th:field="*{views}" /></p>
-    <p>Productorders: <input type="text" th:field="*{orders}" /></p>
+<h1>Add Product</h1>
+    <p><b>Product Name: <input type="text" th:field="*{name}" /></b></p>
+    <p><b>Product price: <input type="text" th:field="*{price}" /></b></p>
+    <p><b>Product category: <input type="text" th:field="*{category}"/></b></p>
+    <p><b>Product brand: <input type="text" th:field="*{brand}" /></b></p>
+    <p><b>Product size: <input type="text" th:field="*{size}" /></b></p>
+    <p><b>Product id: <input type="text" th:field="*{id}" /></b></p>
+    <p><b>Product color: <input type="text" th:field="*{color}" /></b></p>
+    <p><b>Product views: <input type="text" th:field="*{views}" /></b></p>
+    <p><b>Product orders: <input type="text" th:field="*{orders}" /></b></p>
     <p><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></p>
      </form>
     </body>

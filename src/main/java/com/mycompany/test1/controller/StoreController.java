@@ -9,40 +9,77 @@ import java.util.List;
 public class StoreController {
 
     StoreOwner owner;
-    private List<Store> mStores=new ArrayList<>();
-    int ID=0;
+    public List<Store> mStores = new ArrayList<>();
+    int ID = 0;
 
-  
+
     public void setOwner(StoreOwner owner) {
-        this.owner=owner;
+        this.owner = owner;
     }
 
-    boolean search(String name,StoreController sc){
+    boolean search(String name) {
 
-        for(Store s: sc.mStores){
-            if(s.getName().equalsIgnoreCase(name))
+        for (Store s : mStores) {
+            if (s.getName().equalsIgnoreCase(name))
                 return true;
         }
         return false;
     }
-  
-    boolean addStore(String name,StoreController stc){
+
+    boolean addStore(String name) {
         Store store;
-        if(search(name,stc)){
+        if (search(name)) {
             return false;
-        }
-        else{
+        } else {
             store = new Store();
             store.setName(name);
-            stc.mStores.add(store);
+            mStores.add(store);
             ID++;
             return true;
         }
     }
 
-   
-    
+    void increamentViews(Store mystore) {
+        mystore.setExploreNumber(mystore.getExploreNumber() + 1);
+    }
 
-    List<Store> getAll(){ return mStores; }
+    void viewStroeToExplore(String name, StoreController stc) {
+        if (search(name)) {
+            for (int i = 0; i < stc.mStores.size(); i++) {
+                if (mStores.get(i).getName().equalsIgnoreCase(name)) {
+                    increamentViews(mStores.get(i));
+                }
+            }
+        } else {
+            System.out.println("Store not exist .");
+        }
 
+    }
+
+    List<Store> getAll() {
+        return mStores;
+    }
+
+    int getExploreStorre(String mystore) {
+        if (search(mystore)) {
+            for (int i = 0; i < mStores.size(); i++) {
+                if (mStores.get(i).getName().equalsIgnoreCase(mystore)) {
+                    return mStores.get(i).getExploreNumber();
+                }
+            }
+        }
+        return -1;
+    }
+
+    int getNumofProductStore(String mystore) {
+
+        if (search(mystore)) {
+            for (int i = 0; i < mStores.size(); i++) {
+                if (mStores.get(i).getName().equalsIgnoreCase(mystore)) {
+                    return mStores.get(i).storeProduct.size();
+                }
+            }
+        }
+        return -1;
+    }
 }
